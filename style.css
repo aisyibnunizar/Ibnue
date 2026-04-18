@@ -1,2 +1,9 @@
+<style>
+    /* Transisi ultra responsif untuk getaran bass */
+    .profile-img {
+        /* ... kode lama tetap ada ... */
+        transition: transform 0.05s ease-out, border-color 0.5s ease; /* 0.05s agar getaran instan */
+    }
+</style>
 
 
