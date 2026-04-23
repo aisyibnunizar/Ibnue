@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildflower | Dark Aesthetic @Ibnue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0c0a; /* Hitam organik */
+            --bg-gradient: radial-gradient(circle at center, #1a1d1a 0%, #050605 100%);
+            --accent-muted: #5c6355; /* Sage gelap */
+            --text-light: #d1d5db;
+            --glass-dark: rgba(255, 255, 255, 0.03);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-dark);
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        /* --- Animasi Patah Hati Jatuh (💔) --- */
+        .heart-particle {
+            position: fixed;
+            top: -10%;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+            animation: fall linear forwards;
+            filter: grayscale(100%) brightness(0.8);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* --- Container Utama --- */
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 50px 25px;
+            text-align: center;
+            z-index: 10;
+            background: rgba(10, 12, 10, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Profile Organik & Redup */
+        .profile-wrapper {
+            position: relative;
+            margin-bottom: 35px;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1) brightness(0.7);
+            border: 1px solid var(--accent-muted);
+            padding: 4px;
+            background: #000;
+            animation: morphing 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .sub-bio {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--accent-muted);
+            margin-bottom: 45px;
+        }
+
+        /* --- Link Cards (Dark Mode Premium) --- */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .link-card {
+            background: var(--glass-dark);
+            padding: 18px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .link-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--accent-muted);
+            transform: scale(1.02);
+            color: #fff;
+        }
+
+        .link-card i {
+            width: 35px;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        .link-card:hover i {
+            opacity: 1;
+            color: var(--accent-muted);
+        }
+
+        .link-card span {
+            font-weight: 200;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        /* --- Music Player (Floating Dark) --- */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            padding: 12px 24px;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            border: 1px solid var(--border-subtle);
+            z-index: 100;
+            transition: 0.3s;
+        }
+
+        .music-player:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .song-info b { font-size: 0.7rem; display: block; color: #fff; letter-spacing: 1px; }
+        .song-info span { font-size: 0.6rem; color: var(--accent-muted); }
+
+        .visualizer { display: flex; align-items: flex-end; gap: 3px; height: 14px; }
+        .bar { width: 2px; background: var(--accent-muted); height: 30%; }
+        .playing .bar { animation: pulse 0.8s infinite alternate; }
+        
+        @keyframes pulse {
+            from { height: 30%; opacity: 0.5; }
+            to { height: 100%; opacity: 1; }
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            opacity: 0.3;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-wrapper">
+            <img src="IMG_20260323_213437_787.webp" alt="Profile" class="profile-img">
+        </div>
+        
+        <h1>Ibnue</h1>
+        <p class="sub-bio">Other Social Media  &bull; Student</p>
+
+        <div class="links-container">
+            <a href="https://wa.link/3pieq1" class="link-card" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.instagram.com/ibnue.nzr" class="link-card" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@iyaloo2007" class="link-card" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://t.me/ibnue2212" class="link-card" target="_blank">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+            <a href="https://www.facebook.com/share/1C7Py8pZva/" class="link-card" target="_blank">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+        </div>
+
+        <div class="footer">"Things as they are..."</div>
+    </div>
+
+    <div class="music-player" id="musicBtn">
+        <div class="visualizer">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="song-info">
+            <b>WILDFLOWER</b>
+            <span>Billie Eilish</span>
+        </div>
+        <audio id="audioSrc" loop>
+            <source src="Billie Eilish - WILDFLOWER BILLIE BY FINNEAS.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        const musicBtn = document.getElementById('musicBtn');
+        const audio = document.getElementById('audioSrc');
+        let isPlaying = false;
+
+        // Fungsi Partikel Hati Patah Terus Menerus
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-particle';
+            heart.innerHTML = '💔';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's'; 
+            heart.style.fontSize = Math.random() * 10 + 10 + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => { heart.remove(); }, 6000);
+        }
+
+        setInterval(createHeart, 400);
+
+        // Music Toggle
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.classList.remove('playing');
+            } else {
+                audio.play();
+                musicBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>
